@@ -2,9 +2,9 @@
 $:.push File.expand_path('../lib', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name        = "fluent-plugin-resque"
-  gem.description = "Resque enqueue plugin"
-  gem.homepage    = "https://github.com/hotchpotch/fluent-plugin-resque"
+  gem.name        = "fluent-plugin-resque-ex"
+  gem.description = "Resque-ex enqueue plugin"
+  gem.homepage    = "https://github.com/iyagi15/fluent-plugin-resque-ex"
   gem.summary     = gem.description
   gem.version     = File.read("VERSION").strip
   gem.authors     = ["Yuichi Tateno"]
