@@ -1,6 +1,6 @@
 module Fluent
-  class ResqueOutput < BufferedOutput
-    Fluent::Plugin.register_output('resque', self)
+  class ResqueExOutput < BufferedOutput
+    Fluent::Plugin.register_output('resque_ex', self)
 
     include SetTagKeyMixin
     config_set_default :include_tag_key, false
