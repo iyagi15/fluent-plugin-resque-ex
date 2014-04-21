@@ -1,4 +1,3 @@
-
 module Fluent
   class ResqueOutput < BufferedOutput
     Fluent::Plugin.register_output('resque', self)
@@ -18,6 +17,8 @@ module Fluent
       require 'multi_json'
       require 'redis'
       require 'redis-namespace'
+      require 'uuidtools'
+      require 'digest/md5'
     end
 
     def configure(conf)
@@ -56,8 +57,9 @@ module Fluent
     end
 
     def enqueue(queue, klass, args)
+      id = Digest::MD5.hexdigest(UUIDTools::UUID.random_create.to_s)
       redis.sadd(:queues, queue.to_s)
-      redis.rpush("queue:#{queue}", ::MultiJson.encode(:class => klass, :args => [args]))
+      redis.rpush("queue:#{queue}", ::MultiJson.encode(:class => klass, :id => id, :args => [args]))
     end
 
     def start
