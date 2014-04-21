@@ -2,7 +2,7 @@
 
 = Installation
 
-  $ fluent-gem install fluent-plugin-resque
+  $ fluent-gem install fluent-plugin-resque-ex
 
 = Usage
 
